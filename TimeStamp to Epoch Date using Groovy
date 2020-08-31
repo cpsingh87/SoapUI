@@ -1,0 +1,11 @@
+def currentTime = new Date().format("yyyy-MM-dd HH:mm:ssZ",TimeZone.getTimeZone('GMT-4'))
+log.info currentTime
+
+def dateFormat = 'yyyy-MM-dd HH:mm:ssZ'
+
+String millis = Date.parse(dateFormat, currentTime).time/1000
+log.info millis
+
+
+def tcProp=testRunner.testCase //Defining TestCase Object
+tcProp.setPropertyValue("CurrentDate",millis) // This will store the Property Value at TestCase Level
